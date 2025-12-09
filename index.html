@@ -309,7 +309,7 @@
 function actualizarContador() {
   const ahora = new Date();
   const year = ahora.getFullYear();
-  const birthday = new Date(year, 11, 9, 12, 56, 35); // 13 diciembre 00:00
+  const birthday = new Date(year, 11, 13, 0, 0, 1); // 13 diciembre 00:00
 
   if (ahora >= birthday) {
     document.getElementById("countdown").style.display = "none";
