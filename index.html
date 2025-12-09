@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cuenta atrás de cumpleaños</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;600&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+<style>
+  body {
+  margin:0;
+  font-family: "Poppins", system-ui;  /* ← más legible */
+  background: linear-gradient(120deg, #ffecd2, #fcb69f);
+  color:#3b3054;
+  text-align:center;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  padding-top: 20px;
+}
+
+
+  #countdown {
+    font-size: clamp(28px, 6vw, 60px);
+    text-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    padding: 20px;
+  }
+
+  #felicidades {
+    display:none;
+    animation: aparecer 1.4s ease forwards;
+  }
+
+  @keyframes aparecer {
+    0%{opacity:0; transform: scale(0.8);}
+    100%{opacity:1; transform: scale(1);}
+  }
+
+  .titulo {
+    font-size: clamp(40px, 7vw, 120px);
+    background: linear-gradient(90deg, #ff6b6b, #ffd166);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(59,48,84,0.95);
+    text-shadow:
+      0 1px 0 rgba(255,255,255,0.4),
+      0 6px 0 rgba(0,0,0,0.1),
+      0 14px 18px rgba(0,0,0,0.25);
+  }
+
+  .lead {
+  font-family:"Nunito", sans-serif;  /* ← limpia y suave */
+  color:#6b2e59;
+  font-size: clamp(16px, 3vw, 32px);
+}
+
+
+  /* --- Galería Flip --- */
+  .galeria {
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+  }
+
+  .card {
+    width:160px;
+    height:160px;
+    perspective:1000px;
+    cursor:pointer;
+  }
+
+  .card-inner {
+    width:100%;
+    height:100%;
+    position:relative;
+    transition: transform 0.8s;
+    transform-style:preserve-3d;
+  }
+
+  .card.flip .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    width:100%;
+    height:100%;
+    position:absolute;
+    backface-visibility:hidden;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:5px;
+    text-align:center;
+  }
+
+  .card-front img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .card-back {
+    background:#fff2;
+    backdrop-filter: blur(6px);
+    transform: rotateY(180deg);
+    font-size:16px;
+    color:#3b3054;
+  }
+</style>
+</head>
+<body>
+
+<div id="countdown"></div>
+
+<div id="felicidades">
+  <h1 class="titulo">¡Feliz Cumpleaños!</h1>
+  <p class="lead">Por muchos más planes de deportistas ...</p>
+
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/roco.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          Uno de nuestros primeros planess. Recuerdo que cuando volvimos en el metro juntos dije uff quizás si que me gusta esta chica
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/maraton.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          Expertos en repartir kakis somos
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/patinando.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          Preparando la maratón de patines de Valencia 2026
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lead">viajecitos ...</p>
+
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/espejo_peñiscola.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          Definitivamente buena habitacion pillamos
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/juntos.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          Foto guapos
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/snoopy.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          Los pijamas de snoopy los mejores
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="lead">y planes chulos en general ...</p>
+
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/sa.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          Cuando seamos ricos y famosos nos harán tarjeta de clientes VIP en el Olympia ;)
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/playa_pizza.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          La playa y la lluvia escenarios protagonistas en nuestros planes jeje
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/gorro_ikea.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          A poca gente le quedaría tan bien el sombrerito del ikea
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="lead"> Te quiero mucho mucho </p>
+
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/llaves.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          Mis llaves ya tienen doble recordatorio de ti
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/abejas2.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          Una abeja y una novia muy guapos
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/gafotas.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          Esta la tenía que colar en algún sitio JAJAJA
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lead"> (este apartado para apreciar lo tremendamente guapa que eres) </p>
+
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/guapa.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          UFFF QUE GUAPA 
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/guapa3.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          UFFF QUE GUAPA x2
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/guapa2.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          UFFF QUE GUAPA x3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function actualizarContador() {
+  const ahora = new Date();
+  const year = ahora.getFullYear();
+  const birthday = new Date(year, 11, 4, 12, 56, 35); // 13 diciembre 00:00
+
+  if (ahora >= birthday) {
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("felicidades").style.display = "block";
+    return;
+  }
+
+  const diff = birthday - ahora;
+
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diff / (1000 * 60)) % 60);
+  const segundos = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").textContent =
+    `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+</script>
+
+</body>
+</html>
