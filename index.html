@@ -6,7 +6,7 @@
 <title>Sorpresa</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;600&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
   body {
@@ -113,6 +113,42 @@
     font-size:16px;
     color:#3b3054;
   }
+  .texto-regalo {
+  font-size: clamp(16px, 3vw, 32px);  /* igual que .lead */
+  font-family: "Nunito", sans-serif;
+  margin-top: 40px;
+  font-weight: 700;
+}
+
+  .boton-regalo {
+  margin-top: 0px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background: #ff6b6b;
+  border-radius: 20px;
+  color: white;
+  font-size: 40px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-regalo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.boton-regalo:active {
+  transform: scale(0.95);
+}
+.espacio-final {
+  height: 60px;   /* Puedes poner 40, 80, 100… según quieras */
+}
+
+
 </style>
 </head>
 <body>
@@ -121,43 +157,7 @@
 
 <div id="felicidades">
   <h1 class="titulo">¡Feliz Cumpleaños!</h1>
-  <p class="lead">Por muchos más planes de deportistas ...</p>
-
-  <div class="galeria">
-    <div class="card" onclick="this.classList.toggle('flip')">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="fotos/roco.jpg" alt="llaves">
-        </div>
-        <div class="card-back">
-          Uno de nuestros primeros planess. Recuerdo que cuando volvimos en el metro juntos dije uff quizás si que me gusta esta chica
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="this.classList.toggle('flip')">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="fotos/maraton.jpg" alt="gorro">
-        </div>
-        <div class="card-back">
-          Expertos en repartir kakis somos
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="this.classList.toggle('flip')">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="fotos/patinando.jpg" alt="juntos">
-        </div>
-        <div class="card-back">
-          Preparando la maratón de patines de Valencia 2026
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="lead">viajecitos ...</p>
+  <p class="lead">Por muchos más viajecitos ...</p>
 
   <div class="galeria">
     <div class="card" onclick="this.classList.toggle('flip')">
@@ -193,8 +193,43 @@
       </div>
     </div>
   </div>
+  <p class="lead">planes de deportistas ...</p>
 
-  <p class="lead">y planes chulos en general ...</p>
+  <div class="galeria">
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/roco.jpg" alt="llaves">
+        </div>
+        <div class="card-back">
+          Uno de nuestros primeros planess. Recuerdo que cuando volvimos en el metro juntos dije uff quizás si que me gusta esta chica
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/maraton.jpg" alt="gorro">
+        </div>
+        <div class="card-back">
+          Expertos en repartir kakis somos
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="fotos/patinando.jpg" alt="juntos">
+        </div>
+        <div class="card-back">
+          Preparando la maratón de patines de Valencia 2026
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lead">y cosas chulas en general ...</p>
 
   <div class="galeria">
     <div class="card" onclick="this.classList.toggle('flip')">
@@ -303,13 +338,22 @@
       </div>
     </div>
   </div>
+  <p class="texto-regalo">Toca aquí para elegir tu regalo ;)</p>
+
+<a href="https://www.wonderbox.es/b/B8FN01/Retail?utm_source=QR&utm_medium=2024&utm_campaign=B8FN01&FromRetail=true" target="_blank" class="boton-regalo">
+  <i class="fa-solid fa-gift"></i>
+</a>
+
+<div class="espacio-final"></div>  
+
 </div>
+
 
 <script>
 function actualizarContador() {
   const ahora = new Date();
   const year = ahora.getFullYear();
-  const birthday = new Date(year, 11, 13, 0, 0, 1); // 13 diciembre 00:00
+  const birthday = new Date(year, 11, 12, 0, 0, 1); // 13 diciembre 00:00
 
   if (ahora >= birthday) {
     document.getElementById("countdown").style.display = "none";
